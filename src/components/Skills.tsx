@@ -11,21 +11,23 @@ interface SkillCategory {
 const Skills = () => {
   const skillCategories: SkillCategory[] = [
     {
-      category: "Frontend",
+      category: "Languages & Frameworks",
       icon: <Layout className="text-neon-blue" />,
       skills: [
-        { name: "React", level: 90 },
-        { name: "TypeScript", level: 85 },
-        { name: "JavaScript", level: 95 },
-        { name: "HTML/CSS", level: 90 },
-        { name: "Next.js", level: 80 },
+        { name: "C++", level: 75 },
+        { name: "React Native", level: 85 },
+        { name: "React, Next.js", level: 75 },
+        { name: "TypeScript", level: 70 },
+        { name: "HTML/CSS", level: 85 },
+        { name: "Python", level: 65 },
+        { name: "PHP", level: 60 },
       ],
     },
     {
       category: "Backend",
       icon: <Server className="text-neon-purple" />,
       skills: [
-        { name: "Node.js", level: 80 },
+        { name: "Supabase", level: 80 },
         { name: "Express", level: 75 },
         { name: "Python", level: 70 },
         { name: "GraphQL", level: 65 },
@@ -73,7 +75,7 @@ const Skills = () => {
               {category.icon}
               <h4 className="text-lg font-semibold">{category.category}</h4>
             </div>
-            
+
             <div className="space-y-4">
               {category.skills.map((skill, i) => (
                 <div key={i}>
@@ -82,8 +84,8 @@ const Skills = () => {
                     <span className="text-terminal-comment text-sm">{skill.level}%</span>
                   </div>
                   <div className="h-2 bg-secondary/30 rounded-full overflow-hidden">
-                    <div 
-                      className="h-full rounded-full bg-gradient-to-r from-primary to-accent" 
+                    <div
+                      className="h-full rounded-full bg-gradient-to-r from-primary to-accent"
                       style={{ width: `${skill.level}%` }}
                     ></div>
                   </div>
