@@ -151,10 +151,6 @@
     @apply text-terminal-comment font-mono;
   }
 
-  .content-section {
-    @apply max-w-4xl mx-auto p-6 glass-panel rounded-xl;
-  }
-
   .modal-bg {
     @apply fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center;
   }
