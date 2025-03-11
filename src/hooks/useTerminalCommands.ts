@@ -31,7 +31,6 @@ Available commands:
 • contact
 • certificates
 • resume
-• links
 • photos
 • clear
 • theme`;
@@ -73,12 +72,6 @@ Available commands:
           newCommand.result = "Opening resume...";
           break;
 
-        case "links":
-          setActiveModal("links");
-          setModalTitle("Important Links");
-          newCommand.result = "Opening links...";
-          break;
-
         case "photos":
           setActiveModal("photos");
           setModalTitle("Photo Gallery");
@@ -112,7 +105,6 @@ Available commands:
 • contact
 • certificates
 • resume
-• links
 • photos
 • clear
 • theme`;

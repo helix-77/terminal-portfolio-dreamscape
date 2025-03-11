@@ -7,7 +7,6 @@ import Skills from './Skills';
 import Contact from './Contact';
 import Certificates from './Certificates';
 import Resume from './Resume';
-import Links from './Links';
 import Photos from './Photos';
 
 interface TerminalModalsProps {
@@ -23,64 +22,57 @@ const TerminalModals: React.FC<TerminalModalsProps> = ({
 }) => {
   return (
     <>
-      <ContentModal 
-        isOpen={activeModal === 'about'} 
+      <ContentModal
+        isOpen={activeModal === 'about'}
         onClose={onClose}
         title={modalTitle}
       >
         <About />
       </ContentModal>
-      
-      <ContentModal 
-        isOpen={activeModal === 'projects'} 
+
+      <ContentModal
+        isOpen={activeModal === 'projects'}
         onClose={onClose}
         title={modalTitle}
       >
         <Projects />
       </ContentModal>
-      
-      <ContentModal 
-        isOpen={activeModal === 'skills'} 
+
+      <ContentModal
+        isOpen={activeModal === 'skills'}
         onClose={onClose}
         title={modalTitle}
       >
         <Skills />
       </ContentModal>
-      
-      <ContentModal 
-        isOpen={activeModal === 'contact'} 
+
+      <ContentModal
+        isOpen={activeModal === 'contact'}
         onClose={onClose}
         title={modalTitle}
       >
         <Contact />
       </ContentModal>
-      
-      <ContentModal 
-        isOpen={activeModal === 'certificates'} 
+
+      <ContentModal
+        isOpen={activeModal === 'certificates'}
         onClose={onClose}
         title={modalTitle}
       >
         <Certificates />
       </ContentModal>
-      
-      <ContentModal 
-        isOpen={activeModal === 'resume'} 
+
+      <ContentModal
+        isOpen={activeModal === 'resume'}
         onClose={onClose}
         title={modalTitle}
       >
         <Resume />
       </ContentModal>
-      
-      <ContentModal 
-        isOpen={activeModal === 'links'} 
-        onClose={onClose}
-        title={modalTitle}
-      >
-        <Links />
-      </ContentModal>
-      
-      <ContentModal 
-        isOpen={activeModal === 'photos'} 
+
+
+      <ContentModal
+        isOpen={activeModal === 'photos'}
         onClose={onClose}
         title={modalTitle}
       >

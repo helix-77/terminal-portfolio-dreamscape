@@ -32,7 +32,6 @@ A sleek, interactive terminal-style website built with React and TypeScript, des
 | `contact` | Show contact information |
 | `certificates` | View certificates and achievements |
 | `resume` | Display resume |
-| `links` | Show important links |
 | `photos` | Browse photo gallery |
 | `clear` | Clear the terminal |
 | `theme` | Toggle dark/light theme |

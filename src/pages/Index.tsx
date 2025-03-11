@@ -15,7 +15,6 @@ const Index = () => {
     'contact',
     'certificates',
     'resume',
-    'links',
     'photos',
     'clear',
     'theme'
