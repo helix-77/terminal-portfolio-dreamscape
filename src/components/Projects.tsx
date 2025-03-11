@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Github, ExternalLink, Folder } from 'lucide-react';
 
 interface Project {
@@ -12,6 +11,12 @@ interface Project {
 }
 
 const Projects = () => {
+  const [showInterface, setShowInterface] = useState(false);
+  const [typedCommand, setTypedCommand] = useState('');
+  const [cursorVisible, setCursorVisible] = useState(true);
+
+  const fullCommand = 'projects --view all';
+
   const projects: Project[] = [
     {
       title: "UniCompanion App",
@@ -48,65 +53,123 @@ const Projects = () => {
     },
   ];
 
+  // Typing effect for command
+  useEffect(() => {
+    if (typedCommand.length < fullCommand.length) {
+      const timeout = setTimeout(() => {
+        setTypedCommand(fullCommand.substring(0, typedCommand.length + 1));
+      }, 70);
+      return () => clearTimeout(timeout);
+    } else {
+      const timeout = setTimeout(() => {
+        setShowInterface(true);
+      }, 300);
+      return () => clearTimeout(timeout);
+    }
+  }, [typedCommand]);
+
+  // Blinking cursor effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCursorVisible(prev => !prev);
+    }, 500);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className="space-y-6">
-      <div className="flex items-center space-x-3 mb-4">
-        <Folder className="text-neon-blue" size={24} />
-        <h3 className="text-xl font-semibold">Projects</h3>
-      </div>
+    <div className="bg-gray-900 text-gray-200 rounded-md font-mono overflow-hidden">
 
-      <p className="text-lg leading-relaxed mb-6">
-        Here's a selection of projects I've worked on. Each one represents different challenges and learning opportunities.
-      </p>
+      {/* Terminal Content */}
+      <div className="p-2">
+        <div className="mb-2">
+          <span className="text-purple-400">helix@portfolio:~$ </span>
+          <span className="text-green-400">{typedCommand}</span>
+          {!showInterface && cursorVisible && <span className="text-white">▋</span>}
+        </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {projects.map((project, index) => (
-          <div
-            key={index}
-            className="glass-panel rounded-xl p-5 transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,238,255,0.3)] group"
-          >
-            <h4 className="text-xl font-semibold mb-2 group-hover:text-neon-blue transition-colors">
-              {project.title}
-            </h4>
-            <p className="text-gray-300 mb-4 text-sm">{project.description}</p>
+        {showInterface && (
+          <div className="mt-4 bg-gray-800/50 rounded-md border border-gray-700 p-4 animate-in fade-in duration-300 select-text">
+            <div className="flex items-center space-x-3 mb-4 border-b border-gray-700 pb-3">
+              <div className="text-cyan-400 mr-2">$</div>
+              <Folder className="text-yellow-400" size={20} />
+              <h3 className="text-sm font-mono text-purple-400">ls -la projects/</h3>
+            </div>
 
-            <div className="flex flex-wrap gap-2 mb-4">
-              {project.technologies.map((tech, i) => (
-                <span
-                  key={i}
-                  className="text-xs px-2 py-1 rounded-full bg-secondary/50 text-terminal-text"
+            <p className="text-gray-300 leading-relaxed mb-6 pl-6 text-sm border-l-2 border-gray-700">
+              Found <span className="text-green-400">{projects.length}</span> projects in directory. Displaying results:
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+              {projects.map((project, index) => (
+                <div
+                  key={index}
+                  className="bg-gray-900/50 rounded-md border border-gray-700 p-4 transition-all duration-300 hover:border-cyan-500/50 group"
                 >
-                  {tech}
-                </span>
+                  <div className="flex items-center mb-2">
+                    <span className="text-cyan-400 mr-2">$</span>
+                    <span className="text-yellow-400">cat</span>
+                    <span className="text-white mx-2">project_{index + 1}.json</span>
+                  </div>
+
+                  <div className="pl-4 border-l border-gray-700">
+                    <h4 className="text-blue-400 font-semibold mb-2 group-hover:text-cyan-400 transition-colors">
+                      {project.title}
+                    </h4>
+                    <p className="text-gray-300 mb-4 text-sm">{project.description}</p>
+
+                    <div className="mb-3">
+                      <div className="text-gray-500 text-xs mb-1">tech-stack.list</div>
+                      <div className="flex flex-wrap gap-2 mb-2">
+                        {project.technologies.map((tech, i) => (
+                          <span
+                            key={i}
+                            className="text-xs px-2 py-1 rounded-md bg-gray-800 text-pink-400 border border-gray-700"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="flex justify-end space-x-3 mt-4 border-t border-gray-700 pt-2">
+                      {project.githubUrl && (
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-400 hover:text-green-400 transition-colors flex items-center gap-1"
+                          aria-label={`GitHub repository for ${project.title}`}
+                        >
+                          <Github size={16} />
+                          <span className="text-xs">repo</span>
+                        </a>
+                      )}
+                      {project.liveUrl && (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-400 hover:text-blue-400 transition-colors flex items-center gap-1"
+                          aria-label={`Live demo for ${project.title}`}
+                        >
+                          <ExternalLink size={16} />
+                          <span className="text-xs">demo</span>
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </div>
               ))}
             </div>
 
-            <div className="flex justify-end space-x-3 mt-2">
-              {project.githubUrl && (
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-neon-blue transition-colors"
-                  aria-label={`GitHub repository for ${project.title}`}
-                >
-                  <Github size={18} />
-                </a>
-              )}
-              {project.liveUrl && (
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-neon-blue transition-colors"
-                  aria-label={`Live demo for ${project.title}`}
-                >
-                  <ExternalLink size={18} />
-                </a>
-              )}
+            {/* Terminal Footer */}
+            <div className="mt-6 border-t border-gray-700 pt-2 flex items-center justify-between text-xs text-gray-500">
+              <div>Found: {projects.length} projects</div>
+              <div>MODE: display</div>
+              <div className="text-green-400">Exit Code: 77</div>
             </div>
           </div>
-        ))}
+        )}
       </div>
     </div>
   );
