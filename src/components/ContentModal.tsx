@@ -1,6 +1,5 @@
-
-import React, { useEffect, useRef } from 'react';
-import { X } from 'lucide-react';
+import React, { useEffect, useRef } from "react";
+import { X } from "lucide-react";
 
 interface ContentModalProps {
   isOpen: boolean;
@@ -16,10 +15,13 @@ const ContentModal: React.FC<ContentModalProps> = ({
   children,
 }) => {
   const modalRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+
+
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && isOpen) {
+      if (e.key === "Escape" && isOpen) {
         onClose();
       }
     };
@@ -34,18 +36,18 @@ const ContentModal: React.FC<ContentModalProps> = ({
       }
     };
 
-    document.addEventListener('keydown', handleEscape);
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("keydown", handleEscape);
+    document.addEventListener("mousedown", handleClickOutside);
 
     // Lock scroll when modal is open
     if (isOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     }
 
     return () => {
-      document.removeEventListener('keydown', handleEscape);
-      document.removeEventListener('mousedown', handleClickOutside);
-      document.body.style.overflow = 'auto';
+      document.removeEventListener("keydown", handleEscape);
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.body.style.overflow = "auto";
     };
   }, [isOpen, onClose]);
 
@@ -55,20 +57,31 @@ const ContentModal: React.FC<ContentModalProps> = ({
     <div className="modal-bg animate-in fade-in duration-200">
       <div
         ref={modalRef}
-        className="content-section w-[90vw] md:w-[80vw] max-h-[80vh] overflow-y-auto animate-modal-appear"
+        className="glass-panel max-w-6xl mx-auto bg-gray-900 border border-gray-700 rounded-md shadow-lg w-[80vw] md:w-[80vw] max-h-[80vh] overflow-hidden flex flex-col animate-in zoom-in-95 duration-200"
       >
-        <div className="flex items-center justify-between mb-4 border-b border-white/10 pb-3">
-          <h2 className="text-xl md:text-2xl font-bold text-gradient">
-            {title}
-          </h2>
+        <div
+          ref={headerRef}
+          className="flex items-center justify-between p-3 border-b border-gray-700 bg-gray-800"
+        >
+          <div className="flex items-center gap-2">
+            <div className="flex gap-1.5">
+              <div className="h-3 w-3 rounded-full bg-red-500"></div>
+              <div className="h-3 w-3 rounded-full bg-yellow-500"></div>
+              <div className="h-3 w-3 rounded-full bg-green-500"></div>
+            </div>
+            {/* <h2 className="text-lg font-mono ml-2 text-purple-400">
+              {title} <span className="text-gray-400 text-sm">| helix_77</span>
+            </h2> */}
+          </div>
           <button
             onClick={onClose}
             className="text-gray-400 hover:text-white transition-colors p-1 rounded-full hover:bg-white/10"
+            aria-label="Close modal"
           >
-            <X size={20} />
+            <X size={18} />
           </button>
         </div>
-        <div>{children}</div>
+        <div className="overflow-y-auto p-4 flex-grow">{children}</div>
       </div>
     </div>
   );

@@ -1,180 +1,219 @@
-import { motion } from "motion/react";
+import React, { useState, useEffect } from "react";
 
 const About = () => {
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
+  const [showInterface, setShowInterface] = useState(false);
+  const [typedCommand, setTypedCommand] = useState("");
+  const [cursorVisible, setCursorVisible] = useState(true);
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5 },
-    },
-  };
+  const fullCommand = "about --gui";
+
+  // Typing effect for command
+  useEffect(() => {
+    if (typedCommand.length < fullCommand.length) {
+      const timeout = setTimeout(() => {
+        setTypedCommand(fullCommand.substring(0, typedCommand.length + 1));
+      }, 100);
+      return () => clearTimeout(timeout);
+    } else {
+      const timeout = setTimeout(() => {
+        setShowInterface(true);
+      }, 500);
+      return () => clearTimeout(timeout);
+    }
+  }, [typedCommand]);
+
+  // Blinking cursor effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCursorVisible((prev) => !prev);
+    }, 500);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <motion.div
-      className="text-white"
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-    >
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-        {/* Profile Image */}
-        <motion.div
-          className="md:col-span-1 flex justify-center"
-          variants={itemVariants}
-        >
-          <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-xl overflow-hidden border-2 border-neon-blue/50 shadow-lg shadow-neon-blue/20">
-            <div className="absolute inset-0 z-10"></div>
-            <img
-              src="/public/images/profile.jpg"
-              alt="Profile Picture"
-              className="object-cover w-full h-full"
-            />
-          </div>
-        </motion.div>
-
-        {/* About Content */}
-        <motion.div className="md:col-span-2" variants={itemVariants}>
-          <h2 className="text-3xl font-display text-neon-pink mb-4 animate-text-glow">
-            Hello, I'm{" "}
-            <span className="text-neon-blue">Atik Mouhtasim Rahi</span>
-          </h2>
-
-          <p className="text-gray-300 mb-4">
-            I've been fascinated by and using computers for as long as I can
-            remember, which naturally led me to pursue Computer Science at RUET.
-            I love building apps and sites, diving into new technologies, and
-            exploring the depths of AI. I enjoy working on
-            new projects or an emerging tech trend, I’m always
-            open to take on challenges, adapt, and push my limits.
-          </p>
-
-          <p className="text-gray-300 mb-4">
-
-            As I have a bit more than a year left to graduate, I’m looking for various
-            opportunities where I can put my skills to real use while
-            continuing to learn from experienced professionals.
-          </p>
-
-          {/* education */}
-          <div className="flex items-center">
-            <div className="w-10 h-10 rounded-full bg-neon-blue/20 flex items-center justify-center mr-3">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 text-neon-blue"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
-                />
-              </svg>
-            </div>
-            <div>
-              <h3 className="text-neon-blue font-mono text-sm">EDUCATION</h3>
-              <p className="text-white">
-                B.S. in Computer Science, RUET, Bangladesh
-              </p>
-            </div>
-          </div>
-
-          {/* experience */}
-          <div className="mt-6 space-y-4">
-            <div className="flex items-center">
-              <div className="w-10 h-10 rounded-full bg-neon-green/20 flex items-center justify-center mr-3">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-neon-green"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  />
-                </svg>
-              </div>
-              <div>
-                <h3 className="text-neon-green font-mono text-sm">
-                  EXPERIENCE
-                </h3>
-                <p className="text-white">1+ years in app, web development</p>
-              </div>
-            </div>
-
-
-            {/* Interests */}
-            <div className="flex items-center">
-              <div className="w-10 h-10 rounded-full bg-neon-pink/20 flex items-center justify-center mr-3">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-neon-pink"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-                  />
-                </svg>
-              </div>
-              <div>
-                <h3 className="text-neon-pink font-mono text-sm">INTERESTS</h3>
-                <p className="text-white">
-                  AI, Web Development, App Development, Gaming, Computers
-                </p>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-      </div>
-
-      {/* Tech Stack Section */}
-      <motion.div
-        className="mt-12 bg-terminal-gray/50 p-6 rounded-lg border border-gray-700"
-        variants={itemVariants}
-      >
-        <h3 className="text-xl font-display text-neon-blue mb-4">
-          Comfortable with
-          {/* Primary Tech Stack */}
-        </h3>
-
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
-          {["React Native", "Expo", "React", "Next.js", "Supabase", "Tailwind CSS"].map(
-            (tech) => (
-              <div
-                key={tech}
-                className="bg-terminal-black/50 px-4 py-3 rounded-md text-center border border-gray-700 hover:border-neon-blue/50 transition-colors"
-              >
-                <span className="text-white font-mono text-sm">{tech}</span>
-              </div>
-            )
+    <div className="bg-gray-900 text-gray-200 rounded-md font-mono overflow-hidden">
+      {/* Terminal Content */}
+      <div className="p-2">
+        <div className="mb-2">
+          <span className="text-purple-400">helix@portfolio:~$ </span>
+          <span className="text-green-400">{typedCommand}</span>
+          {!showInterface && cursorVisible && (
+            <span className="text-white">▋</span>
           )}
         </div>
-      </motion.div>
-    </motion.div>
+
+        {showInterface && (
+          <div className="mt-4 bg-gray-800/50 rounded-md border border-gray-700 p-4 animate-in fade-in duration-300 select-text">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+              {/* Profile Section */}
+              <div className="md:col-span-1 flex flex-col items-center space-y-3 bg-gray-900/50 p-4 rounded-md border border-gray-700">
+                <div className="text-center mb-2">
+                  <p className="text-xs text-gray-400">~/profile.jpg</p>
+                </div>
+                <div className="border-2 border-purple-500/30 rounded-md p-1 w-48 h-48">
+                  <div className=" rounded-md flex items-center justify-center text-gray-500">
+                    <img
+                      src="/public/images/profile.jpg"
+                      alt="Profile Picture"
+                      className="rounded-md"
+                    />
+                  </div>
+                </div>
+
+                <div className="text-center space-y-1 w-full">
+                  <h3 className="text-purple-400 text-lg font-bold">
+                    Atik Mouhtasim Rahi
+                  </h3>
+                  <p className="text-green-400 text-sm">
+                    CS Student & Developer
+                  </p>
+                  <div className="border-t border-gray-700 my-2"></div>
+                  <div className="text-gray-400 text-xs">
+                    Status: <span className="text-green-400">Online</span>
+                  </div>
+                  <div className="text-gray-400 text-xs">
+                    Location:{" "}
+                    <span className="text-yellow-400">Bangladesh</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* About Content */}
+              <div className="md:col-span-2 space-y-4">
+                <div className="bg-gray-900/50 p-4 rounded-md border border-gray-700">
+                  <div className="flex items-center mb-2">
+                    <span className="text-cyan-400 mr-2">$</span>
+                    <span className="text-purple-400 mx-2">cat</span>
+                    <span className="text-yellow-400">about.txt</span>
+                  </div>
+                  <div className="pl-4 text-gray-300 space-y-2 text-sm">
+                    <p>
+                      I've been fascinated by and using computers for as long as
+                      I can remember, which naturally led me to pursue Computer
+                      Science at RUET. I love building apps and sites, diving
+                      into new technologies, and exploring the depths of AI.
+                    </p>
+                    <p>
+                      As I have a bit more than a year left to graduate, I'm
+                      looking for various opportunities where I can put my
+                      skills to real use while continuing to learn from
+                      experienced professionals.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {/* Education */}
+                  <div className="bg-gray-900/50 p-4 rounded-md border border-gray-700">
+                    <div className="flex items-center mb-2">
+                      <span className="text-cyan-400 mr-2">$</span>
+                      <span className="text-purple-400 mx-2">cat</span>
+                      <span className="text-yellow-400">education</span>
+                    </div>
+                    <div className="pl-4">
+                      <div className="text-blue-400 text-sm font-bold">
+                        (B.Sc.) Computer Science & Engineering
+                      </div>
+                      <div className="text-gray-400 text-xs mt-1">
+                        RUET, Bangladesh
+                      </div>
+                      <div className="text-gray-500 text-xs">
+                        Expected graduation: 2026
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Experience */}
+                  <div className="bg-gray-900/50 p-4 rounded-md border border-gray-700">
+                    <div className="flex items-center mb-2">
+                      <span className="text-cyan-400 mr-2">$</span>
+                      {/* <span className="text-yellow-400">ls</span> */}
+                      <span className="text-purple-400 mx-2">cat</span>
+                      <span className="text-yellow-400">experience</span>
+                    </div>
+                    <div className="pl-4">
+                      <div className="text-green-500 font-bold text-sm">
+                        App & Web Development
+                      </div>
+                      <div className="text-gray-400 text-xs mt-1">
+                        1+ years experience
+                      </div>
+                      <div className="text-gray-500 text-xs">
+                        Various projects & freelance work
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Interests */}
+                  <div className="bg-gray-900/50 p-4 rounded-md border border-gray-700 md:col-span-2">
+                    <div className="flex items-center mb-2">
+                      <span className="text-cyan-400 mr-2">$</span>
+                      <span className="text-purple-400">grep</span>
+                      <span className="text-white mx-2">
+                        -i <span className="text-yellow-400">"interests"</span> ~/profile.json
+                      </span>
+                    </div>
+                    <div className="pl-4 flex flex-wrap gap-2">
+                      {[
+                        "AI",
+                        "Web Development",
+                        "App Development",
+                        "Gaming",
+                        "Computers",
+                      ].map((interest) => (
+                        <span
+                          key={interest}
+                          className="bg-gray-800 text-pink-400 px-2 py-1 text-xs rounded-md border border-gray-700"
+                        >
+                          {interest}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Tech Stack */}
+            <div className="mt-6 bg-gray-900/50 p-4 rounded-md border border-gray-700">
+              <div className="flex items-center mb-3">
+                <span className="text-cyan-400 mr-2">$</span>
+                <span className="text-purple-400">find</span>
+                <span className="text-yellow-400 mx-2">~/comfortable-with</span>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2">
+                {[
+                  "React Native",
+                  "Expo",
+                  "React",
+                  "Next.js",
+                  "Supabase",
+                  "Tailwind CSS",
+                  "C++",
+                  "Latex",
+                  "Laravel",
+                ].map((tech) => (
+                  <div
+                    key={tech}
+                    className="bg-gray-800 p-2 text-center text-xs rounded-md border border-gray-700 hover:border-blue-500/50 transition-colors"
+                  >
+                    <span className="text-blue-400">{tech}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Terminal Footer */}
+            <div className="mt-6 border-t border-gray-700 pt-2 flex items-center justify-between text-xs text-gray-500">
+              <div>PID: 2003118</div>
+              <div>SHELL: helix_77</div>
+              <div className="text-green-400">Exit Code: 77</div>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
   );
 };
 
