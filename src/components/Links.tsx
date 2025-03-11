@@ -1,57 +1,50 @@
-
 import React from 'react';
-import { Link, ExternalLink, Github, Linkedin, Twitter, Mail, Globe, FileCode } from 'lucide-react';
+import { Link, ExternalLink, Github, Linkedin, Twitter, Mail, Globe, FileCode, Facebook, MessageCircle } from 'lucide-react';
 
 const Links = () => {
   const links = [
     {
       id: 1,
+      title: 'Email Me',
+      url: 'mailto:mdatikmouhtasim@gmail.com',
+      icon: <Mail size={20} className="text-white" />,
+      color: 'bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600',
+      description: 'Direct contact via email'
+    },
+    {
+      id: 2,
       title: 'GitHub',
-      url: 'https://github.com/username',
+      url: 'https://github.com/helix-77',
       icon: <Github size={20} className="text-gray-100" />,
       color: 'bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-700 hover:to-gray-800',
       description: 'Check out my open-source projects and contributions'
     },
     {
-      id: 2,
+      id: 3,
       title: 'LinkedIn',
-      url: 'https://linkedin.com/in/username',
+      url: 'https://www.linkedin.com/in/mdatik2003118/',
       icon: <Linkedin size={20} className="text-white" />,
       color: 'bg-gradient-to-r from-blue-700 to-blue-800 hover:from-blue-600 hover:to-blue-700',
       description: 'Connect with me professionally'
     },
     {
-      id: 3,
-      title: 'Twitter',
-      url: 'https://twitter.com/username',
-      icon: <Twitter size={20} className="text-white" />,
-      color: 'bg-gradient-to-r from-blue-400 to-blue-500 hover:from-blue-300 hover:to-blue-400',
-      description: 'Follow me for tech updates and thoughts'
-    },
-    {
       id: 4,
-      title: 'Personal Blog',
-      url: 'https://myblog.com',
-      icon: <Globe size={20} className="text-white" />,
+      title: 'WhatsApp',
+      url: 'https://wa.me/8801719345888',
+      icon: <MessageCircle size={20} className="text-white" />,
       color: 'bg-gradient-to-r from-green-600 to-green-700 hover:from-green-500 hover:to-green-600',
-      description: 'Read my articles on web development and design'
+      description: 'Reach me out on WhatsApp'
     },
+
     {
       id: 5,
-      title: 'CodePen',
-      url: 'https://codepen.io/username',
-      icon: <FileCode size={20} className="text-white" />,
-      color: 'bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-600 hover:to-gray-700',
-      description: 'See my coding experiments and demos'
+      title: 'Facebook',
+      url: 'https://www.facebook.com/atik.mouhtasim.rahi',
+      icon: <Facebook size={20} className="text-white" />,
+      color: 'bg-gradient-to-r from-blue-400 to-blue-500 hover:from-blue-300 hover:to-blue-400',
+      description: 'Let\'s grow a bond'
     },
-    {
-      id: 6,
-      title: 'Email Me',
-      url: 'mailto:email@example.com',
-      icon: <Mail size={20} className="text-white" />,
-      color: 'bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600',
-      description: 'Direct contact via email'
-    },
+
   ];
 
   return (
