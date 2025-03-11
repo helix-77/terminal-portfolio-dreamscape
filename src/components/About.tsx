@@ -12,12 +12,12 @@ const About = () => {
     if (typedCommand.length < fullCommand.length) {
       const timeout = setTimeout(() => {
         setTypedCommand(fullCommand.substring(0, typedCommand.length + 1));
-      }, 100);
+      }, 90);
       return () => clearTimeout(timeout);
     } else {
       const timeout = setTimeout(() => {
         setShowInterface(true);
-      }, 500);
+      }, 300);
       return () => clearTimeout(timeout);
     }
   }, [typedCommand]);
@@ -104,6 +104,7 @@ const About = () => {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
                   {/* Education */}
                   <div className="bg-gray-900/50 p-4 rounded-md border border-gray-700">
                     <div className="flex items-center mb-2">
@@ -128,7 +129,6 @@ const About = () => {
                   <div className="bg-gray-900/50 p-4 rounded-md border border-gray-700">
                     <div className="flex items-center mb-2">
                       <span className="text-cyan-400 mr-2">$</span>
-                      {/* <span className="text-yellow-400">ls</span> */}
                       <span className="text-purple-400 mx-2">cat</span>
                       <span className="text-yellow-400">experience</span>
                     </div>
