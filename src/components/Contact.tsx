@@ -102,14 +102,14 @@ const Contact: React.FC = () => {
             <div className="flex items-center border-b border-gray-700 pb-2 mb-4">
               <div className="text-cyan-400 mr-2">\></div>
               <button
-                className={`mr-4 px-3 py-1 rounded-t-md ${activeTab === 'contact' ? 'bg-gray-700 text-purple-400' : 'text-[#6366f1] hover:text-gray-200'
+                className={`mr-4 px-3 py-1 rounded-t-md ${activeTab === 'contact' ? 'bg-gray-700 text-yellow-400' : 'text-yellow-400/70 hover:text-gray-200'
                   }`}
                 onClick={() => setActiveTab('contact')}
               >
                 contact.sh
               </button>
               <button
-                className={`mr-4 px-3 py-1 rounded-t-md ${activeTab === 'links' ? 'bg-gray-700 text-purple-400' : 'text-indigo-400 hover:text-gray-200'
+                className={`mr-4 px-3 py-1 rounded-t-md ${activeTab === 'links' ? 'bg-gray-700 text-yellow-400' : 'text-yellow-400/70 hover:text-gray-200'
                   }`}
                 onClick={() => setActiveTab('links')}
               >

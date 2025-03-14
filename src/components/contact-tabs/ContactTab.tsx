@@ -1,5 +1,15 @@
 import React, { useState } from "react";
-import { Mail, Github, MessageCircle, Send, Link, Link2, Link2Icon, ExternalLink } from "lucide-react";
+import {
+    Mail,
+    Github,
+    MessageCircle,
+    Send,
+    Link,
+    Link2,
+    Link2Icon,
+    ExternalLink,
+    ChevronRight,
+} from "lucide-react";
 import LinkTab from "./LinkTab";
 
 const ContactTab: React.FC = () => {
@@ -15,7 +25,8 @@ const ContactTab: React.FC = () => {
 
         const name = (document.getElementById("name") as HTMLInputElement).value;
         const email = (document.getElementById("email") as HTMLInputElement).value;
-        const message = (document.getElementById("message") as HTMLTextAreaElement).value;
+        const message = (document.getElementById("message") as HTMLTextAreaElement)
+            .value;
 
         if (!name || !email || !message) {
             alert("Please fill in all fields.");
@@ -25,7 +36,9 @@ const ContactTab: React.FC = () => {
 
         const text = `📩 *New Message from portfolio@terminal*\n\n👤 *Name:* ${name}\n📧 *Email:* ${email}\n💬 *Message:* ${message}`;
 
-        const telegramURL = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}&parse_mode=Markdown`;
+        const telegramURL = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(
+            text
+        )}&parse_mode=Markdown`;
 
         try {
             await fetch(telegramURL);
@@ -41,21 +54,21 @@ const ContactTab: React.FC = () => {
         <div className="animate-in fade-in duration-200">
             <div className="flex items-center mb-3">
                 <span className="text-cyan-400 mr-2">$</span>
-                <span className="text-yellow-400">echo</span>
+                <span className="text-purple-400">echo</span>
                 <span className="text-white mx-2">"Let's Connect"</span>
             </div>
 
             <p className="text-gray-300 leading-relaxed mb-6 pl-6 text-sm border-l-2 border-gray-700">
-                I'm always open to discussing new projects, creative ideas, or opportunities. Reach out via Telegram or send a direct message below.
+                I'm always open to discussing new projects, creative ideas, or
+                opportunities. Reach out via Telegram or send a direct message below.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-
                 {/* Contact Methods */}
                 <div className="bg-gray-900/50 rounded-md border border-gray-700 p-4">
                     <div className="flex items-center mb-3">
                         <span className="text-cyan-400 mr-2">$</span>
-                        <span className="text-yellow-400">cat</span>
+                        <span className="text-purple-400">cat</span>
                         <span className="text-white mx-2">connect.json</span>
                     </div>
                     <div className="pl-4 space-y-3 border-l border-gray-700">
@@ -93,16 +106,16 @@ const ContactTab: React.FC = () => {
                                 helix-77
                             </a>
                         </div>
-
                         <div className="bg-gray-800/70 p-3 rounded-md border border-gray-700">
-                            <button
+                            <a
                                 className="text-gray-300 text-sm hover:text-green-400 transition-colors flex items-center gap-1"
-                                onClick={() => setActiveTab('links')}
-
+                                onClick={() => setActiveTab("links")}
                             >
-                                <ExternalLink size={14} />
-                                All links & profiles
-                            </button>
+                                <ChevronRight size={14} />
+                                <div>See the {" "}
+                                    <span className="text-yellow-500 mr-2">links.sh</span>
+                                    tab for more ways to connect.</div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -111,11 +124,14 @@ const ContactTab: React.FC = () => {
                 <div className="bg-gray-900/50 rounded-md border border-gray-700 p-4">
                     <div className="flex items-center mb-3">
                         <span className="text-cyan-400 mr-2">$</span>
-                        <span className="text-yellow-400">nano</span>
+                        <span className="text-purple-400">nano</span>
                         <span className="text-white mx-2">quick_message.txt</span>
                     </div>
 
-                    <form onSubmit={sendToTelegram} className="pl-4 space-y-3 border-l border-gray-700">
+                    <form
+                        onSubmit={sendToTelegram}
+                        className="pl-4 space-y-3 border-l border-gray-700"
+                    >
                         <div>
                             <label
                                 htmlFor="name"
@@ -163,7 +179,9 @@ const ContactTab: React.FC = () => {
 
                         <button
                             type="submit"
-                            className={`px-4 py-2 bg-gray-800 border border-cyan-600 text-cyan-400 rounded-md transition-all flex items-center gap-2 text-sm ${loading ? "opacity-50 cursor-not-allowed" : "hover:bg-cyan-900/30"
+                            className={`px-4 py-2 bg-gray-800 border border-cyan-600 text-cyan-400 rounded-md transition-all flex items-center gap-2 text-sm ${loading
+                                ? "opacity-50 cursor-not-allowed"
+                                : "hover:bg-cyan-900/30"
                                 }`}
                             disabled={loading}
                         >
