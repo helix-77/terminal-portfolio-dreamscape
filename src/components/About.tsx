@@ -54,7 +54,7 @@ const About = () => {
                 <div className="border-2 border-purple-500/30 rounded-md p-1 w-48 h-48">
                   <div className=" rounded-md flex items-center justify-center text-gray-500">
                     <img
-                      src="/public/images/profile.jpg"
+                      src="/images/profile.jpg"
                       alt="Profile Picture"
                       className="rounded-md"
                     />

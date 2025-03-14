@@ -105,14 +105,14 @@ const Projects = () => {
                   key={index}
                   className="bg-gray-900/50 rounded-md border border-gray-700 p-4 transition-all duration-300 hover:border-cyan-500/50 group"
                 >
-                  <div className="flex items-center mb-2">
+                  <div className="flex items-center mb-2 text-sm ">
                     <span className="text-cyan-400 mr-2">$</span>
                     <span className="text-yellow-400">cat</span>
                     <span className="text-white mx-2">project_{index + 1}.json</span>
                   </div>
 
                   <div className="pl-4 border-l border-gray-700">
-                    <h4 className="text-blue-400 font-semibold mb-2 group-hover:text-cyan-400 transition-colors">
+                    <h4 className="text-blue-400 text-lg font-mono font-semibold mb-2 group-hover:text-cyan-400 transition-colors">
                       {project.title}
                     </h4>
                     <p className="text-gray-300 mb-4 text-sm">{project.description}</p>
