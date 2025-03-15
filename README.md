@@ -34,7 +34,6 @@ A sleek, interactive terminal-style website built with React and TypeScript, des
 | `resume` | Display resume |
 | `photos` | Browse photo gallery |
 | `clear` | Clear the terminal |
-| `theme` | Toggle dark/light theme |
 
 ## 🛠️ Setup & Installation
 
@@ -66,8 +65,7 @@ A sleek, interactive terminal-style website built with React and TypeScript, des
 ## 🎯 How to Customize
 
 1. **Profile Data**: Edit the data files in `src/` to personalize your information
-2. **Theme**: Modify color themes in the Tailwind config file
-3. **Commands**: Add or remove commands in `useTerminalCommands.ts`
+2. **Commands**: Add or remove commands in `useTerminalCommands.ts`
 
 
 ## 🔍 Keyboard Shortcuts
