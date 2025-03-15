@@ -149,10 +149,8 @@ const About = () => {
                   <div className="bg-gray-900/50 p-4 rounded-md border border-gray-700 md:col-span-2">
                     <div className="flex items-center mb-2">
                       <span className="text-cyan-400 mr-2">$</span>
-                      <span className="text-purple-400">grep</span>
-                      <span className="text-white mx-2">
-                        -i <span className="text-yellow-400">"interests"</span> ~/profile.json
-                      </span>
+                      <span className="text-purple-400 mr-2">grep</span>
+                      <span className="text-yellow-400">"interests"</span>
                     </div>
                     <div className="pl-4 flex flex-wrap gap-2">
                       {[

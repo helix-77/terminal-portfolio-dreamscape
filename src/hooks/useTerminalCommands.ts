@@ -32,8 +32,7 @@ Available commands:
 • certificates
 • resume
 • photos
-• clear
-• theme`;
+• clear`;
           break;
 
         case "about":
@@ -82,16 +81,6 @@ Available commands:
           setInitialCommands([]);
           return; // No need to add command to history
 
-        case "theme":
-          document.documentElement.classList.toggle("dark");
-          document.documentElement.classList.toggle("light");
-          newCommand.result = document.documentElement.classList.contains(
-            "dark"
-          )
-            ? "Switched to dark theme."
-            : "Switched to light theme.";
-          break;
-
         default:
           break;
       }
@@ -106,8 +95,7 @@ Available commands:
 • certificates
 • resume
 • photos
-• clear
-• theme`;
+• clear`;
       newCommand.isError = true;
     }
 

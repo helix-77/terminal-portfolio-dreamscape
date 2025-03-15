@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 import Terminal from '../components/Terminal';
 import SocialLinks from '../components/SocialLinks';
 import TerminalModals from '../components/TerminalModals';
-import ThemeToggle from '../components/ThemeToggle';
 import { useTerminalCommands } from '../hooks/useTerminalCommands';
 
 const Index = () => {
@@ -17,7 +16,6 @@ const Index = () => {
     'resume',
     'photos',
     'clear',
-    'theme'
   ];
 
   const {
