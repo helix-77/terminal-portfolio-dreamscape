@@ -1,6 +1,6 @@
 // for index(terminal) page's footer
 import React from 'react';
-import { Github, Linkedin, Twitter } from 'lucide-react';
+import { Github, Instagram, Linkedin, Newspaper, Twitter } from 'lucide-react';
 
 const SocialLinks = () => {
   return (
@@ -15,7 +15,7 @@ const SocialLinks = () => {
         <Github size={24} />
       </a>
       <a
-        href="https://linkedin.com/in/username"
+        href="https://www.linkedin.com/in/mdatik2003118/"
         target="_blank"
         rel="noopener noreferrer"
         className="text-gray-400 hover:text-neon-purple transition-colors"
@@ -24,13 +24,22 @@ const SocialLinks = () => {
         <Linkedin size={24} />
       </a>
       <a
-        href="https://twitter.com/username"
+        href="https://www.instagram.com/hel.ix__/"
         target="_blank"
         rel="noopener noreferrer"
         className="text-gray-400 hover:text-neon-pink transition-colors"
-        aria-label="Twitter"
+        aria-label="Instagram"
       >
-        <Twitter size={24} />
+        <Instagram size={24} />
+      </a>
+      <a
+        href="https://flowcv.com/resume/ske29udov5vv"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-gray-400 hover:text-neon-green transition-colors"
+        aria-label="FlowCV"
+      >
+        <Newspaper size={24} />
       </a>
     </div>
   );

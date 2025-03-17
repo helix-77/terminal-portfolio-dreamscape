@@ -1,6 +1,6 @@
 // contact.tsx
 import React, { useState, useEffect } from 'react';
-import { Mail, Linkedin, Github, Facebook, MessageCircle, Paperclip, ScrollText } from 'lucide-react';
+import { Mail, Linkedin, Github, Facebook, MessageCircle, Paperclip, ScrollText, Instagram } from 'lucide-react';
 import ContactTab from './contact-tabs/ContactTab';
 import LinkTab, { Link } from './contact-tabs/LinkTab';
 import TypingEffectGui from './TypingEffectGui';
@@ -56,11 +56,17 @@ const Contact: React.FC = () => {
       title: 'FlowCV',
       url: 'https://flowcv.com/resume/ske29udov5vv',
       icon: <ScrollText size={18} className="text-white" />,
-      color: 'bg-pink-500/10 border-pink-500/30 hover:border-pink-500',
+      color: 'bg-red-500/10 border-pink-500/30 hover:border-red-500',
       description: 'View my live resume',
     },
-
-
+    {
+      id: 7,
+      title: 'Instagram',
+      url: 'https://www.instagram.com/hel.ix__/',
+      icon: <Instagram size={18} className="text-white" />,
+      color: 'bg-pink-400/10 border-pink-500/30 hover:border-pink-500',
+      description: 'View my live resume',
+    },
   ];
 
 

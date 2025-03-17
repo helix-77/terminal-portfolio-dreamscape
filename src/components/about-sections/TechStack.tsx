@@ -22,7 +22,7 @@ function TechStack() {
                 ].map((tech) => (
                     <div
                         key={tech}
-                        className="bg-gray-800 p-2 text-center text-xs rounded-md border border-gray-700 hover:border-blue-500/50 transition-colors"
+                        className="bg-gray-800 p-2 text-center text-xs rounded-md border border-gray-700 hover:border-blue-500/50 transition-colors flex items-center justify-center"
                     >
                         <span className="text-blue-400">{tech}</span>
                     </div>

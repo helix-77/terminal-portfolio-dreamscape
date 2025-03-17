@@ -155,9 +155,6 @@
     @apply fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center;
   }
 
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#8BE9FD] via-[#BD93F9] to-[#FF79C6];
-  }
 
   .grid-bg {
     background-size: 40px 40px;
