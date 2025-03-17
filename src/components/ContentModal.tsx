@@ -69,9 +69,6 @@ const ContentModal: React.FC<ContentModalProps> = ({
               <div className="h-3 w-3 rounded-full bg-yellow-500"></div>
               <div className="h-3 w-3 rounded-full bg-green-500"></div>
             </div>
-            {/* <h2 className="text-lg font-mono ml-2 text-purple-400">
-              {title} <span className="text-gray-400 text-sm">| helix_77</span>
-            </h2> */}
           </div>
           <button
             onClick={onClose}

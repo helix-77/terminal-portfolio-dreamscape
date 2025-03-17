@@ -35,7 +35,7 @@ const Skills = () => {
     SE: ["Cpp", "Python", "Tkinter", "Numpy", "Matplotlib"],
     Frontend: ["React Native", "React", "TypeScript", "Next.js", "Tailwind CSS"],
     Backend: ["Supabase", "MySQL", "PHP", "Laravel", "Firebase", "Node.js",],
-    Tools: ["Linux", "Git", "GitHub", "MS Office", "GPTs", "Canva", "Notion"],
+    Tools: ["Linux", "Git", "Latex", "GitHub", "MS Office", "GPTs", "Canva", "Notion"],
   };
 
   // Personal interests/skills
