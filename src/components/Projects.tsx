@@ -89,15 +89,12 @@ const Projects = () => {
 
         {showInterface && (
           <div className="mt-4 bg-gray-800/50 rounded-md border border-gray-700 p-4 animate-in fade-in duration-300 select-text">
-            <div className="flex items-center space-x-3 mb-4 border-b border-gray-700 pb-3">
+            <div className="flex items-center space-x-3">
               <div className="text-cyan-400 mr-2">$</div>
               <Folder className="text-yellow-400" size={20} />
               <h3 className="text-sm font-mono text-purple-400">ls -la projects/</h3>
             </div>
 
-            <p className="text-gray-300 leading-relaxed mb-6 pl-6 text-sm border-l-2 border-gray-700">
-              Found <span className="text-green-400">{projects.length}</span> projects in directory. Displaying results:
-            </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
               {projects.map((project, index) => (
@@ -105,11 +102,11 @@ const Projects = () => {
                   key={index}
                   className="bg-gray-900/50 rounded-md border border-gray-700 p-4 transition-all duration-300 hover:border-cyan-500/50 group"
                 >
-                  <div className="flex items-center mb-2 text-sm ">
+                  {/* <div className="flex items-center mb-2 text-sm ">
                     <span className="text-cyan-400 mr-2">$</span>
                     <span className="text-yellow-400">cat</span>
                     <span className="text-white mx-2">project_{index + 1}.json</span>
-                  </div>
+                  </div> */}
 
                   <div className="pl-4 border-l border-gray-700">
                     <h4 className="text-blue-400 text-lg font-mono font-semibold mb-2 group-hover:text-cyan-400 transition-colors">

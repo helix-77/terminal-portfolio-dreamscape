@@ -8,7 +8,7 @@ export const useTerminalCommands = (commandList: string[]) => {
 
   const handleCommandExecution = (command: string) => {
     let result: string | undefined;
-    let isError = false;
+    const isError = false;
 
     const trimmedCmd = command.trim().toLowerCase();
 

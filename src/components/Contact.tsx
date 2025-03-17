@@ -56,7 +56,7 @@ const Contact: React.FC = () => {
     {
       id: 6,
       title: 'FlowCV',
-      url: '../pages/Upcoming',
+      url: 'https://flowcv.com/resume/ske29udov5vv',
       icon: <ScrollText size={18} className="text-white" />,
       color: 'bg-pink-500/10 border-pink-500/30 hover:border-pink-500',
       description: 'View my live resume',

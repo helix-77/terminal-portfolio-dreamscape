@@ -1,3 +1,4 @@
+import { ExternalLink } from "lucide-react";
 import React, { useState, useEffect } from "react";
 
 const About = () => {
@@ -75,6 +76,18 @@ const About = () => {
                   <div className="text-gray-400 text-xs">
                     Location:{" "}
                     <span className="text-yellow-400">Bangladesh</span>
+                  </div>
+                  <div className="text-gray-400 text-xs">
+                    CV:{" "}
+                    <a
+                      href="https://flowcv.com/resume/ske29udov5vv"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-pink-400 hover:underline inline-flex items-center"
+                    >
+                      FlowCV
+                      <ExternalLink size={9} className="ml-1" />
+                    </a>
                   </div>
                 </div>
               </div>
