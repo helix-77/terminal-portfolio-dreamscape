@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 const TypingEffectGui = ({
     command,
     typingSpeed = 70,
-    delayBeforeShow = 300,
+    delayBeforeShow = 200,
     children
 }) => {
     const [typedCommand, setTypedCommand] = useState("");

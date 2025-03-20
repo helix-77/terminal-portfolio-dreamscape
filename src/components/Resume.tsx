@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { FileText, Download, Briefcase, GraduationCap, Code } from 'lucide-react';
+import { FileText, Download, } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import TypingEffectGui from "./TypingEffectGui";
 import WorkExperience from "./resume-sections/WorkExperience";
 import Education from "./resume-sections/Education";
-import Skills from "./Skills";
 import ResumeSkills from "./resume-sections/ResumeSkills";
 
 const Resume = () => {

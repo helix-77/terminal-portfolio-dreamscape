@@ -1,4 +1,3 @@
-// contact.tsx
 import React, { useState, useEffect } from 'react';
 import { Mail, Linkedin, Github, Facebook, MessageCircle, Paperclip, ScrollText, Instagram } from 'lucide-react';
 import ContactTab from './contact-tabs/ContactTab';

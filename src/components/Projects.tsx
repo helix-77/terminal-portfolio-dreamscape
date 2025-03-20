@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from 'react';
 import { Github, ExternalLink, Folder } from 'lucide-react';
 import TypingEffectGui from './TypingEffectGui';
 
