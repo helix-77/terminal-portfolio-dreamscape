@@ -1,7 +1,6 @@
 import React from 'react';
 
 const NeofetchDisplay: React.FC = () => {
-  // Neofetch ASCII art
   const asciiArt = `
   ................
   ..............
@@ -23,9 +22,12 @@ const NeofetchDisplay: React.FC = () => {
 
   return (
     <>
-      <div className="flex flex-row justify-between items-center px-4 mb-4">
-        <pre className="text-[#F1FA8C] mr-4">{asciiArt}</pre>
-        <div className="text-gray-300 pr-10">
+      <div className="flex flex-col md:flex-row justify-between md:items-center px-4 mb-4">
+        {/* asci art */}
+        <pre className="text-[#F1FA8C] mb-4 md:mr-4 md:mb-0">{asciiArt}</pre>
+
+        {/* system info */}
+        <div className="text-gray-300 pr-0 md:pr-10">
           <div><span className="text-[#BD93F9] font-bold">Name:</span> Portfolio | helix_77 </div>
           <div><span className="text-[#BD93F9] font-bold">Host:</span> Atik Mouhtasim Rahi</div>
           <div><span className="text-[#BD93F9] font-bold">Uptime:</span> 24/7</div>
@@ -45,22 +47,21 @@ const NeofetchDisplay: React.FC = () => {
           <div>
             <span className="text-[#BD93F9] font-bold">Today: </span>
             {new Date().toLocaleString()}
-
           </div>
         </div>
       </div>
 
-        {/* Color palette display */}
-        <div className="flex mb-4">
-          <div className="w-6 h-6 bg-[#FF5555]"></div>
-          <div className="w-6 h-6 bg-[#50FA7B]"></div>
-          <div className="w-6 h-6 bg-[#F1FA8C]"></div>
-          <div className="w-6 h-6 bg-[#BD93F9]"></div>
-          <div className="w-6 h-6 bg-[#FF79C6]"></div>
-          <div className="w-6 h-6 bg-[#8BE9FD]"></div>
-        </div>
-      </>
-      );
+      {/* Color palette display */}
+      <div className="flex mb-4 mt-2 ml-4">
+        <div className="w-6 h-6 bg-[#FF5555]"></div>
+        <div className="w-6 h-6 bg-[#50FA7B]"></div>
+        <div className="w-6 h-6 bg-[#F1FA8C]"></div>
+        <div className="w-6 h-6 bg-[#BD93F9]"></div>
+        <div className="w-6 h-6 bg-[#FF79C6]"></div>
+        <div className="w-6 h-6 bg-[#8BE9FD]"></div>
+      </div>
+    </>
+  );
 };
 
-      export default NeofetchDisplay;
+export default NeofetchDisplay;

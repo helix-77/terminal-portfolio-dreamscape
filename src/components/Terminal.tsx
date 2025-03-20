@@ -29,12 +29,23 @@ const Terminal: React.FC<TerminalProps> = ({
 }) => {
   const [history, setHistory] = useState<Command[]>(initialCommands);
   const [currentInput, setCurrentInput] = useState('');
-  const [suggestionsVisible, setSuggestionsVisible] = useState(true);
+  const [suggestionsVisible, setSuggestionsVisible] = useState(false);
   const [filteredSuggestions, setFilteredSuggestions] = useState<string[]>(suggestions);
   const [selectedSuggestionIndex, setSelectedSuggestionIndex] = useState(-1);
-  const [selectedCommandIndex, setSelectedCommandIndex] = useState(0);
+  const [selectedCommandIndex, setSelectedCommandIndex] = useState(-1);
+  const [isMobile, setIsMobile] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const terminalRef = useRef<HTMLDivElement>(null);
+
+  // Check if device is mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Update history when initialCommands change
   useEffect(() => {
@@ -75,22 +86,6 @@ const Terminal: React.FC<TerminalProps> = ({
       terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
     }
   }, [history]);
-
-  // Handle clicks outside suggestion area
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        suggestionsVisible &&
-        terminalRef.current &&
-        !terminalRef.current.contains(event.target as Node)
-      ) {
-        setSuggestionsVisible(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [suggestionsVisible]);
 
   const executeCommand = (cmd: string) => {
     const trimmedCmd = cmd.trim().toLowerCase();
@@ -184,6 +179,7 @@ const Terminal: React.FC<TerminalProps> = ({
             ref={terminalRef}
             className="flex-1 overflow-y-auto text-sm p-3 bg-[#1E1E2E]/70 backdrop-blur-xl font-mono"
           >
+            {/* Mobile-optimized Neofetch display */}
             <NeofetchDisplay />
 
             <div className="border-t border-gray-700 pt-3 mt-3"></div>
@@ -198,6 +194,21 @@ const Terminal: React.FC<TerminalProps> = ({
               />
             ))}
           </div>
+
+          {/* Mobile command buttons */}
+          {isMobile && showCommandList && (
+            <div className="flex flex-wrap gap-2 p-2 bg-[#1E1E2E]/90 border-t border-gray-700">
+              {suggestions.map((cmd) => (
+                <button
+                  key={cmd}
+                  onClick={() => executeCommand(cmd)}
+                  className="px-3 py-1 bg-[#2D2D3D] text-[#F8F8F2] rounded-md text-xs border border-gray-700 hover:bg-[#3D3D4D] transition-colors"
+                >
+                  {cmd}
+                </button>
+              ))}
+            </div>
+          )}
 
           <div className="px-3 py-2 bg-[#1E1E2E] border-t border-gray-700 relative">
             <TerminalInput

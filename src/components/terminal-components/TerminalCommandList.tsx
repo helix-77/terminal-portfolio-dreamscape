@@ -17,23 +17,22 @@ const TerminalCommandList: React.FC<TerminalCommandListProps> = ({
         <span className="text-[#FF79C6] mr-2">❯</span>
         <span>Available Commands</span>
       </div>
-      <div className="flex flex-col">
+
+      <div className="flex flex-col text-sm">
         {suggestions.map((cmd, index) => (
           <button
             key={cmd}
             onClick={() => onCommandClick(cmd, index)}
-            className={`group text-left px-3 py-2 transition-all duration-200 ease-in-out flex items-center border-l-2 ${
-              index === selectedCommandIndex
-                ? 'bg-[#FEF7CD]/20 text-[#F97316] border-[#F97316]'
-                : 'text-[#CCCCCC] border-transparent hover:bg-[#2A2A3C] hover:text-white hover:border-[#BD93F9]'
+            className={`group text-left px-3 py-2 transition-all duration-200 ease-in-out flex items-center border-l-2 ${index === selectedCommandIndex
+              ? 'bg-[#FEF7CD]/20 text-[#F97316] border-[#F97316]'
+              : 'text-[#CCCCCC] border-transparent hover:bg-[#2A2A3C] hover:text-white hover:border-[#BD93F9]'
               }`}
           >
             <span
-              className={`mr-2 ${
-                index === selectedCommandIndex
-                  ? 'text-[#F97316]'
-                  : 'text-[#BD93F9] group-hover:text-white'
-              }`}
+              className={`mr-2 ${index === selectedCommandIndex
+                ? 'text-[#F97316]'
+                : 'text-[#BD93F9] group-hover:text-white'
+                }`}
             >
               $
             </span>
