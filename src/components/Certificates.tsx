@@ -13,7 +13,7 @@ const Certificates = () => {
       issuer: "Coursera",
       date: "April 2023",
       link: "https://www.coursera.org/account/accomplishments/verify/UKGEVW72STB3?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course",
-      image: "/public/certificates/certificate_ml1.png",
+      image: "/certificates/certificate_ml1.png",
     },
     {
       id: 2,
@@ -21,7 +21,7 @@ const Certificates = () => {
       issuer: "Bangladesh Computer Council and RUET",
       date: "January 2023",
       link: "https://edge.gov.bd/",
-      image: "/public/certificates/certificate_edge.png",
+      image: "/certificates/certificate_edge.png",
     },
     {
       id: 3,
@@ -29,7 +29,7 @@ const Certificates = () => {
       issuer: "Programming Hero",
       date: "October 2022",
       link: "https://www.programming-hero.com/",
-      image: "/public/certificates/certificate_ph.png", // Path to certificate image in your repo
+      image: "/certificates/certificate_ph.png", // Path to certificate image in your repo
     },
 
   ];

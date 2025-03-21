@@ -37,7 +37,7 @@ const NeofetchDisplay: React.FC = () => {
           <div><span className="text-[#BD93F9] font-bold">Shell:</span> RN, React, Supabase, C++ , Python, PHP, Laravel, Next </div>
           <div><span className="text-[#BD93F9] font-bold">Packages:</span> Tailwind, Expo, Firebase, Tkinter, Numpy, Latex, ... </div>
           <div><span className="text-[#BD93F9] font-bold">Terminal:</span> helix-portfolio</div>
-          <div><span className="text-[#BD93F9] font-bold">WM:</span> React, Vite, Github pages</div>
+          <div><span className="text-[#BD93F9] font-bold">WM:</span> React, Vite, Vercel</div>
           <div><span className="text-[#BD93F9] font-bold">OS:</span> Win11, WSL v2</div>
           <div><span className="text-[#BD93F9] font-bold">CPU:</span> Ryzen 5 5600H</div>
           <div><span className="text-[#BD93F9] font-bold">GPU:</span> RTX 3050Ti</div>

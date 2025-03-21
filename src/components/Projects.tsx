@@ -25,7 +25,7 @@ const Projects = () => {
       description: "A sleek, interactive terminal-style website built to showcase my personal details, skills, and tools through an unique & elegant UI (wip)",
       technologies: ["React", "Typescript", "Tailwind CSS", "Framer Motion", "Github Pages"],
       githubUrl: "https://github.com/helix-77/terminal-portfolio-dreamscape",
-      liveUrl: "/upcoming",
+      liveUrl: "https://helix-portfolio.vercel.app/",
     },
     {
       title: "Population Prediction Model",
