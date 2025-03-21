@@ -4,10 +4,6 @@ import {
     Github,
     MessageCircle,
     Send,
-    Link,
-    Link2,
-    Link2Icon,
-    ExternalLink,
     ChevronRight,
 } from "lucide-react";
 import LinkTab from "./LinkTab";
@@ -64,62 +60,6 @@ const ContactTab: React.FC = () => {
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-                {/* Contact Methods */}
-                <div className="bg-gray-900/50 rounded-md border border-gray-700 p-4">
-                    <div className="flex items-center mb-3">
-                        <span className="text-cyan-400 mr-2">$</span>
-                        <span className="text-purple-400">cat</span>
-                        <span className="text-white mx-2">connect.json</span>
-                    </div>
-                    <div className="pl-4 space-y-3 border-l border-gray-700">
-                        <div className="bg-gray-800/70 p-3 rounded-md border border-gray-700">
-                            <div className="text-blue-400 font-bold text-sm mb-1">Email</div>
-                            <a
-                                href="mailto:mdatikmouhtasim@gmail.com"
-                                className="text-gray-300 text-sm hover:text-green-400 transition-colors flex items-center gap-1"
-                            >
-                                <Mail size={14} />
-                                mdatikmouhtasim@gmail.com
-                            </a>
-                        </div>
-
-                        <div className="bg-gray-800/70 p-3 rounded-md border border-gray-700">
-                            <div className="text-blue-400 font-bold text-sm mb-1">
-                                WhatsApp
-                            </div>
-                            <a
-                                href="https://wa.me/8801719345888"
-                                className="text-gray-300 text-sm hover:text-green-400 transition-colors flex items-center gap-1"
-                            >
-                                <MessageCircle size={14} />
-                                +880 1719-345888
-                            </a>
-                        </div>
-
-                        <div className="bg-gray-800/70 p-3 rounded-md border border-gray-700">
-                            <div className="text-blue-400 font-bold text-sm mb-1">GitHub</div>
-                            <a
-                                href="https://github.com/helix-77"
-                                className="text-gray-300 text-sm hover:text-green-400 transition-colors flex items-center gap-1"
-                            >
-                                <Github size={14} />
-                                helix-77
-                            </a>
-                        </div>
-                        <div className="bg-gray-800/70 p-3 rounded-md border border-gray-700">
-                            <a
-                                className="text-gray-300 text-sm hover:text-green-400 transition-colors flex items-center gap-1"
-                                onClick={() => setActiveTab("links")}
-                            >
-                                <ChevronRight size={14} />
-                                <div>See the {" "}
-                                    <span className="text-yellow-500 mr-2">links.sh</span>
-                                    tab for more ways to connect.</div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
                 {/* Quick Message Form */}
                 <div className="bg-gray-900/50 rounded-md border border-gray-700 p-4">
                     <div className="flex items-center mb-3">
@@ -190,6 +130,65 @@ const ContactTab: React.FC = () => {
                         </button>
                     </form>
                 </div>
+
+
+                {/* Contact Methods */}
+                <div className="bg-gray-900/50 rounded-md border border-gray-700 p-4">
+                    <div className="flex items-center mb-3">
+                        <span className="text-cyan-400 mr-2">$</span>
+                        <span className="text-purple-400">cat</span>
+                        <span className="text-white mx-2">connect.json</span>
+                    </div>
+                    <div className="pl-4 space-y-3 border-l border-gray-700">
+                        <div className="bg-gray-800/70 p-3 rounded-md border border-gray-700">
+                            <div className="text-blue-400 font-bold text-sm mb-1">Email</div>
+                            <a
+                                href="mailto:mdatikmouhtasim@gmail.com"
+                                className="text-gray-300 text-sm hover:text-green-400 transition-colors flex items-center gap-1"
+                            >
+                                <Mail size={14} />
+                                mdatikmouhtasim@gmail.com
+                            </a>
+                        </div>
+
+                        <div className="bg-gray-800/70 p-3 rounded-md border border-gray-700">
+                            <div className="text-blue-400 font-bold text-sm mb-1">
+                                WhatsApp
+                            </div>
+                            <a
+                                href="https://wa.me/8801719345888"
+                                className="text-gray-300 text-sm hover:text-green-400 transition-colors flex items-center gap-1"
+                            >
+                                <MessageCircle size={14} />
+                                +880 1719-345888
+                            </a>
+                        </div>
+
+                        <div className="bg-gray-800/70 p-3 rounded-md border border-gray-700">
+                            <div className="text-blue-400 font-bold text-sm mb-1">GitHub</div>
+                            <a
+                                href="https://github.com/helix-77"
+                                className="text-gray-300 text-sm hover:text-green-400 transition-colors flex items-center gap-1"
+                            >
+                                <Github size={14} />
+                                helix-77
+                            </a>
+                        </div>
+                        <div className="bg-gray-800/70 p-3 rounded-md border border-gray-700">
+                            <a
+                                className="text-gray-300 text-sm hover:text-green-400 transition-colors flex items-center gap-1"
+                                onClick={() => setActiveTab("links")}
+                            >
+                                <ChevronRight size={14} />
+                                <div>See the {" "}
+                                    <span className="text-yellow-500 mr-2">links.sh</span>
+                                    tab for more ways to connect.</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
     );

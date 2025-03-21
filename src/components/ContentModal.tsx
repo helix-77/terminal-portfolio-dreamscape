@@ -47,7 +47,6 @@ const ContentModal: React.FC<ContentModalProps> = ({
     document.addEventListener("keydown", handleEscape);
     document.addEventListener("mousedown", handleClickOutside);
 
-    // Lock scroll when modal is open
     if (isOpen) {
       document.body.style.overflow = "hidden";
     }
@@ -66,7 +65,7 @@ const ContentModal: React.FC<ContentModalProps> = ({
       <div
         ref={modalRef}
         className={`glass-panel bg-gray-900 border border-gray-700 rounded-md shadow-xl
-          ${isMobile ? 'w-[95vw] h-[90vh]' : 'w-[90vw] md:w-[80vw] max-h-[90vh]'}
+          ${isMobile ? 'w-[95vw] h-[92vh]' : 'w-[85vw] md:w-[85vw] max-h-[90vh]'}
           overflow-hidden flex flex-col animate-in zoom-in-95 duration-300 scale-100`}
         style={{
           transform: "translate(-50%, -50%)",
@@ -86,14 +85,13 @@ const ContentModal: React.FC<ContentModalProps> = ({
               <div className="h-3 w-3 rounded-full bg-yellow-500"></div>
               <div className="h-3 w-3 rounded-full bg-green-500"></div>
             </div>
-            {/* <div className="ml-2 text-white font-medium truncate">{title}</div> */}
           </div>
           <button
             onClick={onClose}
             className="text-gray-400 hover:text-white transition-colors p-1 rounded-full hover:bg-white/10"
             aria-label="Close modal"
           >
-            <X size={18} />
+            <X size={20} />
           </button>
         </div>
         <div className="overflow-y-auto p-2 md:p-4 flex-grow scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-800">{children}</div>
