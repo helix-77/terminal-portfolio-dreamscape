@@ -225,8 +225,6 @@ const Terminal: React.FC<TerminalProps> = ({
                 onKeyDown={handleInputKeyDown}
                 prompt="helix@portfolio:~$"
                 placeholder="Type a command..."
-                onSendClick={handleSendClick}
-                isMobile={isMobile}
               />
 
               {suggestionsVisible && filteredSuggestions.length > 0 && (
