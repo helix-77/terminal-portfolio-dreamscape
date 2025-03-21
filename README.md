@@ -13,6 +13,7 @@ A sleek, interactive terminal-style website built with React and TypeScript, des
 - Sections for projects, skills, contact, resume and more
 - Keyboard navigation support
 - Visual command list sidebar
+- Send message directly to my telegram bot
 
 ## 🧰 Tech Stack
 
