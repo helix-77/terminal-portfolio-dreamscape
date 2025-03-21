@@ -34,6 +34,17 @@ A sleek, interactive terminal-style website built with React and TypeScript, des
 | `photos` | Browse photo gallery |
 | `clear` | Clear the terminal |
 
+
+
+## 🔍 Keyboard Shortcuts
+
+- `Tab`: Auto-complete command
+- `Enter`: Execute command
+- `Up/Down`: Navigate command history
+- `Ctrl+Enter`: Execute selected command from left sidepanel
+- `Esc`: Close suggestions
+
+
 ## 🛠️ Setup & Installation
 
 1. Clone the repository:
@@ -66,14 +77,6 @@ A sleek, interactive terminal-style website built with React and TypeScript, des
 1. **Profile Data**: Edit the data files in `src/` to personalize your information
 2. **Commands**: Add or remove commands in `useTerminalCommands.ts`
 
-
-## 🔍 Keyboard Shortcuts
-
-- `Tab`: Auto-complete command
-- `Enter`: Execute command
-- `Up/Down`: Navigate command history
-- `Ctrl+Enter`: Execute selected command from left sidepanel
-- `Esc`: Close suggestions
 
 
 ## 🙏 Credits
