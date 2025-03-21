@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import Terminal from '../components/Terminal';
 import SocialLinks from '../components/SocialLinks';
@@ -24,7 +23,8 @@ const Index = () => {
     activeModal,
     setActiveModal,
     modalTitle,
-    handleCommandExecution
+    handleCommandExecution,
+    keyboardVisible
   } = useTerminalCommands(availableCommands);
 
   useEffect(() => {
@@ -54,13 +54,14 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen grid-bg pt-4 pb-8 px-4 md:px-8 flex flex-col items-center justify-center">
+    <div className="min-h-screen grid-bg pt-4 pb-6 md:pb-8 px-4 md:px-8 flex flex-col items-center justify-center">
       <div className="w-full max-w-7xl">
         <Terminal
           initialCommands={initialCommands}
           onExecuteCommand={handleCommandExecution}
           suggestions={availableCommands}
           showCommandList={true}
+          keyboardVisible={keyboardVisible}
         />
       </div>
 

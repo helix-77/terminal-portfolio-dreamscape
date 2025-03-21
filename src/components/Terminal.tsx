@@ -19,6 +19,7 @@ interface TerminalProps {
   onExecuteCommand: (command: string) => void;
   suggestions?: string[];
   showCommandList?: boolean;
+  keyboardVisible?: boolean;
 }
 
 const Terminal: React.FC<TerminalProps> = ({
@@ -26,6 +27,7 @@ const Terminal: React.FC<TerminalProps> = ({
   onExecuteCommand,
   suggestions = ['help', 'about', 'projects', 'skills', 'contact', 'clear'],
   showCommandList = true,
+  keyboardVisible = true,
 }) => {
   const [history, setHistory] = useState<Command[]>(initialCommands);
   const [currentInput, setCurrentInput] = useState('');
@@ -40,7 +42,7 @@ const Terminal: React.FC<TerminalProps> = ({
   // Check if device is mobile
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 630);
+      setIsMobile(window.innerWidth <= 768);
     };
     checkMobile();
     window.addEventListener('resize', checkMobile);
@@ -59,12 +61,12 @@ const Terminal: React.FC<TerminalProps> = ({
         suggestion.toLowerCase().includes(currentInput.toLowerCase())
       );
       setFilteredSuggestions(filtered);
-      setSuggestionsVisible(true);
+      setSuggestionsVisible(keyboardVisible);
     } else {
       setFilteredSuggestions(suggestions);
       setSuggestionsVisible(false);
     }
-  }, [currentInput, suggestions]);
+  }, [currentInput, suggestions, keyboardVisible]);
 
   // Keyboard shortcut for command list
   useEffect(() => {
@@ -100,8 +102,8 @@ const Terminal: React.FC<TerminalProps> = ({
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCurrentInput(e.target.value);
-    // Only show suggestions if we have input text
-    setSuggestionsVisible(e.target.value.trim() !== '');
+    // Only show suggestions if we have input text and keyboard is visible
+    setSuggestionsVisible(e.target.value.trim() !== '' && keyboardVisible);
     setSelectedSuggestionIndex(-1);
   };
 
@@ -181,7 +183,6 @@ const Terminal: React.FC<TerminalProps> = ({
           />
         )}
 
-
         <div className="flex-1 flex flex-col min-h-0">
           <div
             ref={terminalRef}
@@ -201,7 +202,6 @@ const Terminal: React.FC<TerminalProps> = ({
               />
             ))}
 
-
             {/* Mobile command buttons */}
             {isMobile && showCommandList && (
               <div className="flex flex-wrap gap-2 p-2 bg-[#1E1E2E]/90 border-t border-gray-700">
@@ -209,7 +209,7 @@ const Terminal: React.FC<TerminalProps> = ({
                   <button
                     key={cmd}
                     onClick={() => executeCommand(cmd)}
-                    className="px-3 py-1 bg-[#2D2D3D] text-[#F8F8F2] rounded-md text-xs border border-gray-700 hover:bg-[#3D3D4D] transition-colors"
+                    className="px-3 py-1.5 bg-[#2D2D3D] text-[#F8F8F2] rounded-md text-xs border border-gray-700 hover:bg-[#3D3D4D] transition-colors"
                   >
                     {cmd}
                   </button>
@@ -217,24 +217,26 @@ const Terminal: React.FC<TerminalProps> = ({
               </div>
             )}
 
-            <div className="px-2 py-1 md:px-3 md:py-2 border-t border-gray-700 relative">
-              <TerminalInput
-                ref={inputRef}
-                value={currentInput}
-                onChange={handleInputChange}
-                onKeyDown={handleInputKeyDown}
-                prompt="helix@portfolio:~$"
-                placeholder="Type a command..."
-              />
-
-              {suggestionsVisible && filteredSuggestions.length > 0 && (
-                <TerminalSuggestions
-                  suggestions={filteredSuggestions}
-                  selectedIndex={selectedSuggestionIndex}
-                  onSuggestionClick={handleSuggestionClick}
+            {keyboardVisible && (
+              <div className="px-2 py-1 md:px-3 md:py-2 border-t border-gray-700 relative">
+                <TerminalInput
+                  ref={inputRef}
+                  value={currentInput}
+                  onChange={handleInputChange}
+                  onKeyDown={handleInputKeyDown}
+                  prompt="helix@portfolio:~$"
+                  placeholder="Type a command..."
                 />
-              )}
-            </div>
+
+                {suggestionsVisible && filteredSuggestions.length > 0 && (
+                  <TerminalSuggestions
+                    suggestions={filteredSuggestions}
+                    selectedIndex={selectedSuggestionIndex}
+                    onSuggestionClick={handleSuggestionClick}
+                  />
+                )}
+              </div>
+            )}
           </div>
         </div>
       </div>

@@ -5,6 +5,15 @@ export const useTerminalCommands = (commandList: string[]) => {
   const [initialCommands, setInitialCommands] = useState<Command[]>([]);
   const [activeModal, setActiveModal] = useState<string | null>(null);
   const [modalTitle, setModalTitle] = useState("");
+  const [keyboardVisible, setKeyboardVisible] = useState(true);
+
+  useEffect(() => {
+    if (activeModal) {
+      setKeyboardVisible(false);
+    } else {
+      setKeyboardVisible(true);
+    }
+  }, [activeModal]);
 
   const handleCommandExecution = (command: string) => {
     let result: string | undefined;
@@ -109,5 +118,7 @@ Available commands:
     setActiveModal,
     modalTitle,
     handleCommandExecution,
+    keyboardVisible,
+    setKeyboardVisible,
   };
 };
