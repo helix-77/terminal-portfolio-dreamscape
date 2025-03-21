@@ -30,15 +30,19 @@ const Index = () => {
   useEffect(() => {
     // Welcome message sequence
     const welcomeSequence = async () => {
+      const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
       const commands = [
         {
           id: '1',
           command: '',
-          result: "Welcome to my interactive portfolio terminal!  Type help to get started.",
+          result: isMobile
+            ? "Welcome to my interactive portfolio terminal!\n\nFor optimal terminal experience, desktop viewing is recommended."
+            : "Welcome to my interactive portfolio terminal! Type 'help' to get started.",
           isActive: false,
         },
-      ];
 
+      ];
       setInitialCommands(commands);
     };
 

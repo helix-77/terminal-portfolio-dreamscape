@@ -17,8 +17,6 @@ const ContentModal: React.FC<ContentModalProps> = ({
   const modalRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
 
-
-
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape" && isOpen) {
@@ -54,10 +52,16 @@ const ContentModal: React.FC<ContentModalProps> = ({
   if (!isOpen) return null;
 
   return (
-    <div className="modal-bg animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center  p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-300">
       <div
         ref={modalRef}
-        className="glass-panel max-w-6xl mx-auto bg-gray-900 border border-gray-700 rounded-md shadow-lg w-[80vw] md:w-[80vw] max-h-[80vh] overflow-hidden flex flex-col animate-in zoom-in-95 duration-200"
+        className="glass-panel max-w-6xl bg-gray-900 border border-gray-700 rounded-md shadow-xl w-[90vw] md:w-[80vw] max-h-[90vh] overflow-hidden flex flex-col animate-in zoom-in-95 duration-300 scale-100"
+        style={{
+          transform: "translate(-50%, -50%)",
+          position: "fixed",
+          top: "50%",
+          left: "50%",
+        }}
       >
         <div
           ref={headerRef}
