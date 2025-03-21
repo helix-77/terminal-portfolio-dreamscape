@@ -21,8 +21,7 @@ export const useTerminalCommands = (commandList: string[]) => {
     if (commandList.includes(trimmedCmd)) {
       switch (trimmedCmd) {
         case "help":
-          newCommand.result = `Use ↑ ↓ to select and hit Ctrl+Enter.
-Or manually type the command and hit Enter.
+          newCommand.result = `Use ↑ ↓ to select and hit Ctrl+Enter. Or manually type the command and hit Enter.
 Available commands:
 • help
 • about
@@ -86,7 +85,7 @@ Available commands:
       }
     } else {
       // Fix 3: Show available commands on error
-      newCommand.result = `Command not recognized: ${command}.\n\nAvailable commands:
+      newCommand.result = `Command not recognized: $${command}\n\nAvailable commands:
 • help
 • about
 • projects

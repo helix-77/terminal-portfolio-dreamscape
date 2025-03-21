@@ -21,7 +21,9 @@ const TerminalCommand: React.FC<TerminalCommandProps> = ({
   result,
   isError = false,
 }) => {
-  const [displayedCommand, setDisplayedCommand] = useState(isTyping ? '' : command);
+  const [displayedCommand, setDisplayedCommand] = useState(
+    isTyping ? '' : command
+  );
   const [cursorVisible, setCursorVisible] = useState(isActive);
   const [isCompleted, setIsCompleted] = useState(!isTyping);
   const commandRef = useRef<HTMLSpanElement>(null);
@@ -53,7 +55,7 @@ const TerminalCommand: React.FC<TerminalCommandProps> = ({
     }
 
     const blinkInterval = setInterval(() => {
-      setCursorVisible(prev => !prev);
+      setCursorVisible((prev) => !prev);
     }, 500);
 
     return () => clearInterval(blinkInterval);
@@ -67,16 +69,27 @@ const TerminalCommand: React.FC<TerminalCommandProps> = ({
   }, [isCompleted, result]);
 
   return (
-    <div className="my-2">
-      <div className="flex">
+    <div className="my-2 w-full max-w-full ">
+      <div className="flex flex-wrap  whitespace-pre-wrap break-words overflow-x-auto">
         <span className="text-[#BD93F9] mr-2">{prompt}</span>
         <span className="text-[#F8F8F2]" ref={commandRef}>
           {displayedCommand}
-          {isActive && cursorVisible && <span className="animate-blink">|</span>}
+          {isActive && cursorVisible && (
+            <span className="animate-blink">|</span>
+          )}
         </span>
       </div>
+
       {isCompleted && result && (
-        <div className={`mt-1 ml-6 ${isError ? 'text-[#FF5555]' : 'text-[#F8F8F2]'}`}>
+        <div
+          className={`
+            mt-1 m-6
+            whitespace-pre-wrap
+            break-words
+
+            ${isError ? 'text-[#FF5555]' : 'text-[#F8F8F2]'}
+          `}
+        >
           {result}
         </div>
       )}

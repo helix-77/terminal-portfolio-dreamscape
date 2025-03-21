@@ -40,7 +40,7 @@ const Terminal: React.FC<TerminalProps> = ({
   // Check if device is mobile
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
+      setIsMobile(window.innerWidth <= 630);
     };
     checkMobile();
     window.addEventListener('resize', checkMobile);
@@ -161,12 +161,19 @@ const Terminal: React.FC<TerminalProps> = ({
     executeCommand(command);
   };
 
+  const handleSendClick = () => {
+    if (currentInput.trim() !== '') {
+      executeCommand(currentInput);
+      setSuggestionsVisible(false);
+    }
+  };
+
   return (
     <div className="kali-terminal w-full h-full overflow-hidden flex flex-col rounded-lg bg-[#1E1E2E]/90 backdrop-blur-xl shadow-2xl border border-gray-700">
       <TerminalHeader title="helix@portfolio:~" />
 
       <div className="flex flex-1 min-h-0">
-        {showCommandList && (
+        {!isMobile && showCommandList && (
           <TerminalCommandList
             suggestions={suggestions}
             selectedCommandIndex={selectedCommandIndex}
@@ -174,12 +181,12 @@ const Terminal: React.FC<TerminalProps> = ({
           />
         )}
 
+
         <div className="flex-1 flex flex-col min-h-0">
           <div
             ref={terminalRef}
-            className="flex-1 overflow-y-auto text-sm p-3 bg-[#1E1E2E]/70 backdrop-blur-xl font-mono"
+            className="overflow-y-auto text-sm p-3 bg-[#1E1E2E]/70 backdrop-blur-xl font-mono"
           >
-            {/* Mobile-optimized Neofetch display */}
             <NeofetchDisplay />
 
             <div className="border-t border-gray-700 pt-3 mt-3"></div>
@@ -193,40 +200,43 @@ const Terminal: React.FC<TerminalProps> = ({
                 prompt="helix@portfolio:~$"
               />
             ))}
-          </div>
 
-          {/* Mobile command buttons */}
-          {isMobile && showCommandList && (
-            <div className="flex flex-wrap gap-2 p-2 bg-[#1E1E2E]/90 border-t border-gray-700">
-              {suggestions.map((cmd) => (
-                <button
-                  key={cmd}
-                  onClick={() => executeCommand(cmd)}
-                  className="px-3 py-1 bg-[#2D2D3D] text-[#F8F8F2] rounded-md text-xs border border-gray-700 hover:bg-[#3D3D4D] transition-colors"
-                >
-                  {cmd}
-                </button>
-              ))}
-            </div>
-          )}
 
-          <div className="px-3 py-2 bg-[#1E1E2E] border-t border-gray-700 relative">
-            <TerminalInput
-              ref={inputRef}
-              value={currentInput}
-              onChange={handleInputChange}
-              onKeyDown={handleInputKeyDown}
-              prompt="helix@portfolio:~$"
-              placeholder="Type a command..."
-            />
-
-            {suggestionsVisible && filteredSuggestions.length > 0 && (
-              <TerminalSuggestions
-                suggestions={filteredSuggestions}
-                selectedIndex={selectedSuggestionIndex}
-                onSuggestionClick={handleSuggestionClick}
-              />
+            {/* Mobile command buttons */}
+            {isMobile && showCommandList && (
+              <div className="flex flex-wrap gap-2 p-2 bg-[#1E1E2E]/90 border-t border-gray-700">
+                {suggestions.map((cmd) => (
+                  <button
+                    key={cmd}
+                    onClick={() => executeCommand(cmd)}
+                    className="px-3 py-1 bg-[#2D2D3D] text-[#F8F8F2] rounded-md text-xs border border-gray-700 hover:bg-[#3D3D4D] transition-colors"
+                  >
+                    {cmd}
+                  </button>
+                ))}
+              </div>
             )}
+
+            <div className="px-2 py-1 md:px-3 md:py-2 border-t border-gray-700 relative">
+              <TerminalInput
+                ref={inputRef}
+                value={currentInput}
+                onChange={handleInputChange}
+                onKeyDown={handleInputKeyDown}
+                prompt="helix@portfolio:~$"
+                placeholder="Type a command..."
+                onSendClick={handleSendClick}
+                isMobile={isMobile}
+              />
+
+              {suggestionsVisible && filteredSuggestions.length > 0 && (
+                <TerminalSuggestions
+                  suggestions={filteredSuggestions}
+                  selectedIndex={selectedSuggestionIndex}
+                  onSuggestionClick={handleSuggestionClick}
+                />
+              )}
+            </div>
           </div>
         </div>
       </div>

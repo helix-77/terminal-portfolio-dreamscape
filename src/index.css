@@ -100,12 +100,6 @@
       inset 0 0 0 1px rgba(255, 255, 255, 0.1);
   }
 
-  .terminal-container {
-    @apply rounded-xl overflow-hidden shadow-2xl;
-    box-shadow:
-      0 10px 30px rgba(0, 0, 0, 0.5),
-      0 1px 2px rgba(0, 0, 0, 0.3);
-  }
 
   .kali-terminal {
     @apply font-mono;
@@ -117,39 +111,8 @@
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.3), inset 0 0 30px rgba(0, 0, 0, 0.1);
   }
 
-  .neon-border {
-    @apply border border-white/10 relative;
-  }
 
-  .neon-border::after {
-    content: '';
-    @apply absolute inset-0 rounded-lg;
-    z-index: -1;
-  }
 
-  .terminal-text {
-    @apply font-mono text-terminal-text;
-  }
-
-  .terminal-prompt {
-    @apply text-terminal-prompt font-mono;
-  }
-
-  .terminal-command {
-    @apply text-terminal-command font-mono;
-  }
-
-  .terminal-success {
-    @apply text-terminal-success font-mono;
-  }
-
-  .terminal-error {
-    @apply text-terminal-error font-mono;
-  }
-
-  .terminal-comment {
-    @apply text-terminal-comment font-mono;
-  }
 
   .modal-bg {
     @apply fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center;
