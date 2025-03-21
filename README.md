@@ -1,9 +1,9 @@
-# Helix Terminal Portfolio (work-in-progress)
+# Helix Portfolio Terminal
 
 ![Terminal Preview](public/preview.png)
 
 
-A sleek, interactive terminal-style website built with React and TypeScript, designed to showcases personal details, skills, and tools through an elegant, modern UI with a focus on usability and aesthetics.
+A sleek, interactive terminal-style website built with React and TypeScript, designed to showcase personal details, skills, and tools through an elegant, modern UI with a focus on usability and aesthetics.
 
 ## 🚀 Features
 
@@ -19,7 +19,6 @@ A sleek, interactive terminal-style website built with React and TypeScript, des
 - React
 - TypeScript
 - Tailwind CSS
-- Ai(lovable.dev, claude, grok)
 
 ## 📋 Available Commands
 
@@ -83,6 +82,7 @@ A sleek, interactive terminal-style website built with React and TypeScript, des
 - [TypeScript](https://www.typescriptlang.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Lovable.dev](https://lovable.dev)
+> *Though the project was initially scaffolded using lovable.dev, but the majority of the design, structure, and features have been extensively customized & refined by me and [Claude AI](https://claude.ai).*
 
 ## 🤝 Contributing
 
