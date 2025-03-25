@@ -34,7 +34,7 @@ function ProfileSection() {
                 <div className="text-gray-400 text-xs">
                     CV:{" "}
                     <a
-                        href="https://flowcv.com/resume/ske29udov5vv"
+                        href="/resume.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-pink-400 hover:underline inline-flex items-center"

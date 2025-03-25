@@ -46,7 +46,7 @@ const SocialLinks = () => {
         <Instagram size={iconSize} />
       </a>
       <a
-        href="https://flowcv.com/resume/ske29udov5vv"
+        href="/resume.pdf"
         target="_blank"
         rel="noopener noreferrer"
         className="text-gray-400 hover:text-neon-green transition-colors p-1.5"

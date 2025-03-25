@@ -15,7 +15,7 @@ const Contact: React.FC = () => {
       title: 'Email Me',
       url: 'mailto:mdatikmouhtasim@gmail.com',
       icon: <Mail size={18} className="text-white" />,
-      color: 'bg-purple-900/20 border-purple-500/30 hover:border-purple-500',
+      color: 'bg-yellow-900/20 border-yellow-500/30 hover:border-yellow-500',
       description: 'Direct contact via email',
     },
     {
@@ -23,7 +23,7 @@ const Contact: React.FC = () => {
       title: 'GitHub',
       url: 'https://github.com/helix-77',
       icon: <Github size={18} className="text-gray-100" />,
-      color: 'bg-gray-800/40 border-gray-400/30 hover:border-gray-500',
+      color: 'bg-gray-700/60 border-gray-400/30 hover:border-gray-500',
       description: 'Check out my open-source projects and contributions',
     },
     {
@@ -39,7 +39,7 @@ const Contact: React.FC = () => {
       title: 'Facebook',
       url: 'https://www.facebook.com/atik.mouhtasim.rahi',
       icon: <Facebook size={18} className="text-white" />,
-      color: 'bg-blue-500/20 border-blue-700/30 hover:border-blue-400',
+      color: 'bg-blue-500/25 border-blue-700/50 hover:border-blue-400',
       description: "Let's grow a bond",
     },
     {
@@ -64,7 +64,7 @@ const Contact: React.FC = () => {
       url: 'https://www.instagram.com/hel.ix__/',
       icon: <Instagram size={18} className="text-white" />,
       color: 'bg-pink-400/10 border-pink-500/30 hover:border-pink-500',
-      description: 'View my live resume',
+      description: 'Follow me on Instagram',
     },
   ];
 
