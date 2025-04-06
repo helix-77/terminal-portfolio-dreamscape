@@ -28,11 +28,12 @@ const Resume = () => {
           </Button>
         </div>
 
+        {/* Education */}
+        <Education />
+
         {/* Professional Experience */}
         <WorkExperience />
 
-        {/* Education */}
-        <Education />
 
         {/* Technical Skills */}
         <ResumeSkills />

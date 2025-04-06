@@ -48,15 +48,10 @@ const ContactTab: React.FC = () => {
 
     return (
         <div className="animate-in fade-in duration-200">
-            <div className="flex items-center mb-3">
-                <span className="text-cyan-400 mr-2">$</span>
-                <span className="text-purple-400">echo</span>
-                <span className="text-white mx-2">"Let's Connect"</span>
-            </div>
 
             <p className="text-gray-300 leading-relaxed mb-6 pl-6 text-sm border-l-2 border-gray-700">
                 I'm always open to discussing new projects, creative ideas, or
-                opportunities. Reach out via Telegram or send a direct message below.
+                opportunities. Reach out via any given link from <span className="text-yellow-400">links.sh</span> or send a direct message below.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
@@ -64,8 +59,8 @@ const ContactTab: React.FC = () => {
                 <div className="bg-gray-900/50 rounded-md border border-gray-700 p-4">
                     <div className="flex items-center mb-3">
                         <span className="text-cyan-400 mr-2">$</span>
-                        <span className="text-purple-400">nano</span>
-                        <span className="text-white mx-2">quick_message.txt</span>
+                        {/* <span className="">nano</span> */}
+                        <span className="text-indigo-400 ">quick_message.txt</span>
                     </div>
 
                     <form
@@ -136,8 +131,8 @@ const ContactTab: React.FC = () => {
                 <div className="bg-gray-900/50 rounded-md border border-gray-700 p-4">
                     <div className="flex items-center mb-3">
                         <span className="text-cyan-400 mr-2">$</span>
-                        <span className="text-purple-400">cat</span>
-                        <span className="text-white mx-2">connect.json</span>
+                        {/* <span className="text-purple-400">cat</span> */}
+                        <span className="text-indigo-400">connect.json</span>
                     </div>
                     <div className="pl-4 space-y-3 border-l border-gray-700">
                         <div className="bg-gray-800/70 p-3 rounded-md border border-gray-700">

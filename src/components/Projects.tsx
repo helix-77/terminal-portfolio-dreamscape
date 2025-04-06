@@ -22,7 +22,7 @@ const Projects = () => {
     },
     {
       title: "Portfolio Web-Terminal",
-      description: "A sleek, interactive terminal-style website built to showcase my personal details, skills, and tools through an unique & elegant UI (wip)",
+      description: "A sleek, interactive terminal-style website built to showcase my personal details, skills, and tools through an unique & elegant UI",
       technologies: ["React", "Typescript", "Tailwind CSS", "Framer Motion", "Github Pages"],
       githubUrl: "https://github.com/helix-77/terminal-portfolio-dreamscape",
       liveUrl: "https://helix-portfolio.vercel.app/",
@@ -32,6 +32,7 @@ const Projects = () => {
       description: "Predict city population growth using historical data from a CSV with Year and Population columns. Develop an integrated model combining Newton's Interpolation, Newton's Raphson Method, and curve fitting to analyze and forecast trends.",
       technologies: ["C++", "CSV"],
       githubUrl: "https://github.com/helix-77/Projects/tree/main/Numerical%20Integrated%20Population%20Prediction",
+      liveUrl: "https://github.com/helix-77/Projects/blob/main/Numerical%20Integrated%20Population%20Prediction/preview.png",
     },
     {
       title: "ForgeCV",
