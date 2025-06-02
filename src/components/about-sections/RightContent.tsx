@@ -81,6 +81,7 @@ function RightContent() {
                             "App Development",
                             "Gaming",
                             "Computers",
+                            "Research",
                         ].map((interest) => (
                             <span
                                 key={interest}

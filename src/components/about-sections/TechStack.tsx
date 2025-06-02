@@ -19,6 +19,7 @@ function TechStack() {
                     "C++",
                     "Latex",
                     "Laravel",
+                    "Strapi CMS",
                 ].map((tech) => (
                     <div
                         key={tech}

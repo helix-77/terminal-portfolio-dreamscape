@@ -43,8 +43,8 @@ function WorkExperience() {
                         <span className="text-sm text-gray-400">2023 - Present</span>
                     </div>
                     <ul className="text-gray-300 space-y-1 text-sm">
-                        <li>• Built a Population Prediction Model using Newton’s Interpolation and curve fitting on historical data.</li>
-                        <li>• Created a Utility Software using Python & Tkinter with multiple productivity tools.</li>
+                        <li>• Built a <u > Population Prediction Model </u> using Newton’s Interpolation and curve fitting on historical data.</li>
+                        <li>• Created a <u>Utility Software using Python & Tkinter</u> with multiple productivity tools.</li>
                         <li>• Built class management, attendance tracking, and messaging features.</li>
                         <li>• Developed various web apps, including a food delivery website and a portfolio site.
                         </li>

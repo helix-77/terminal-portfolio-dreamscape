@@ -10,7 +10,7 @@ const Skills = () => {
   const technicalSkills = {
     SE: ["Cpp", "Python", "Tkinter", "Numpy", "Matplotlib"],
     Frontend: ["React Native", "React", "TypeScript", "Next.js", "Tailwind CSS"],
-    Backend: ["Supabase", "MySQL", "PHP", "Laravel", "Firebase", "Node.js",],
+    Backend: ["Supabase", "MySQL", "PHP", "Laravel", "Firebase", "Node.js", "Strapi CMS"],
     Tools: ["Linux", "Git", "Latex", "MS Office", "GPTs", "Canva", "Notion"],
   };
 
@@ -80,11 +80,11 @@ const Skills = () => {
 
           <div className="space-y-3 pl-4">
             {[
-              { skill: "Front-end Development", level: 75 },
-              { skill: "App Development", level: 85 },
-              { skill: "Back-end Development", level: 70 },
-              { skill: "UI/UX Design", level: 75 },
-              { skill: "Software Engineering", level: 70 },
+              { skill: "Front-end Development", level: 90 },
+              { skill: "App Development", level: 93 },
+              { skill: "Back-end Development", level: 85 },
+              { skill: "UI/UX Design", level: 85 },
+              { skill: "Software Engineering", level: 80 },
             ].map((item) => (
               <div key={item.skill} className="space-y-1">
                 <div className="flex justify-between text-sm">

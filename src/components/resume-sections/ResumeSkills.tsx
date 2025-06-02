@@ -32,7 +32,7 @@ function ResumeSkills() {
                 <div className="bg-gray-800/60 p-3 rounded-md border border-gray-700">
                     <h5 className="font-semibold mb-2 text-green-400">Backend</h5>
                     <div className="flex flex-wrap gap-2">
-                        {["Supabase", "Laravel", "Firebase", "Node.js"].map((skill) => (
+                        {["Supabase", "Laravel", "Firebase", "Node.js", "Strapi CMS"].map((skill) => (
                             <span
                                 key={skill}
                                 className="bg-gray-900 text-pink-400 px-2 py-1 text-xs rounded-md border border-gray-700"
